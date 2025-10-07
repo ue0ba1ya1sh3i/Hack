@@ -1,17 +1,23 @@
 {
   "name": "hack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple hack tools",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "build_windows": "pkg index.js --targets node18-win-x64"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "Arata Uebayashi",
   "license": "ISC",
   "type": "commonjs",
+  "bin": {
+    "win": "index.js"
+  },
+
+  "scripts": {
+    "start": "node index.js",
+    "build": "node build.js"
+  },
+
   "dependencies": {
-    "ddos-stress": "^0.1.0"
+    "adm-zip": "^0.5.16",
+    "ddos-stress": "^0.1.0",
+    "pkg": "^5.8.1"
   }
 }
