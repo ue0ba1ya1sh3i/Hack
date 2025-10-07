@@ -20,12 +20,6 @@ const distPath = path.join(__dirname, "dist");
     // Rename
     fs.renameSync(path.join(distPath, "index.exe"), path.join(distPath, "win.exe"))
 
-    // Create zip
-    console.log("Creating zip...");
-    const zip = new adZip();
-    zip.addLocalFile(path.join(distPath, "win.exe"), "", "hack.exe");
-    zip.writeZip(path.join(distPath, "win.zip"));
-
     // Log
     console.log("Success!");
   } catch (error) {
