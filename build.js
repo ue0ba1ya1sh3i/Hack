@@ -18,7 +18,7 @@ const distPath = path.join(__dirname, "dist");
     ]);
 
     // Rename
-    fs.renameSync(path.join(distPath, "index.exe"), path.join(distPath, "windows.exe"))
+    fs.renameSync(path.join(distPath, "index.exe"), path.join(distPath, "hack-windows.exe"))
 
     // Log
     console.log("Success!");
