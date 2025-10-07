@@ -1,12 +1,11 @@
 // Imports
+const fs = require("fs");
 const path = require("path");
 const adZip = require("adm-zip");
 const pkg = require("pkg");
 
-// Paths
-const distDir = path.join(__dirname, "dist");
-const exePath = path.join(distDir, "win.exe");
-const zipPath = path.join(distDir, "win.zip");
+// Set paths
+const distPath = path.join(__dirname, "dist");
 
 (async () => {
   try {
@@ -15,14 +14,17 @@ const zipPath = path.join(distDir, "win.zip");
     await pkg.exec([
       path.join(__dirname, "index.js"),
       "--targets", "node18-win-x64",
-      "--out-path", distDir
+      "--out-path", distPath
     ]);
+
+    // Rename
+    fs.renameSync(path.join(distPath, "index.exe"), path.join(distPath, "win.exe"))
 
     // Create zip
     console.log("Creating zip...");
     const zip = new adZip();
-    zip.addLocalFile(exePath, "", "hack.exe");
-    zip.writeZip(zipPath);
+    zip.addLocalFile(path.join(distPath, "win.exe"), "", "hack.exe");
+    zip.writeZip(path.join(distPath, "win.zip"));
 
     // Log
     console.log("Success!");
