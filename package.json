@@ -1,0 +1,17 @@
+{
+  "name": "hack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build_windows": "pkg index.js --targets node18-win-x64"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ddos-stress": "^0.1.0"
+  }
+}
